@@ -30,10 +30,10 @@ for folder in unique_study_ids:
 print("#!/bin/bash")
 for index, row in qc_report.iterrows():
     # Generate the partial name of the idat files (red and green) from the excel file
-    idat_name = str(row['Sentrix_ID'])+"_"+str(row['Sentrix_Position'])
+    partial_idat_name = str(row['Sentrix_ID'])+"_"+str(row['Sentrix_Position'])
     study_id = row['STUDY_ID']
     # Map the generated partial idat name to the files and their paths
-    found_idat_files = grep(files, idat_name)
+    found_idat_files = grep(files, partial_idat_name)
     # For every found idat mapped to the generated partial name from the excel file
     # Move those files to the unique study id folder
     # _it is always better and safer to copy instead of move_
